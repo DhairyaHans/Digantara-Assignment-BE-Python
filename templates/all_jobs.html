@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL JOBS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'styles/style.css') }}">
+</head>
+<body>
+    <div id="all_jobs">
+        <h1>CURRENT JOBS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Id</th>
+                    <th>Job Name</th>
+                    <th>Job Description</th>
+                    <th>Next Scheduled Time</th>
+                    <th>Will Repeat(Yes/No)</th>
+                    <th>Repeat After(days)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in jobs[0] %}
+                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.jobId, job_type='current') }}'">
+                        <td>{{ item.jobId }} </td>
+                        <td>{{ item.jobName }} </td>
+                        <td>{{ item.jobDescription }} </td>
+                        <td>{{ item.scheduledTime }} </td>
+                        {% if item.repeat %}
+                            <td>Yes</td>
+                        {% else %}
+                            <td>No</td>
+                        {% endif %}
+                        <td>{{ item.repeatAfter }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>EXECUTED JOBS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Execution Id</th>
+                    <th>Job Id</th>
+                    <th>Job Name</th>
+                    <th>Job Description</th>
+                    <th>Scheduled Time</th>
+                    <th>Executed On</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in jobs[1] %}
+                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.executionId, job_type='executed') }}'">
+                        <td>{{ item.executionId }} </td>
+                        <td>{{ item.jobId }} </td>
+                        <td>{{ item.jobName }} </td>
+                        <td>{{ item.jobDescription }} </td>
+                        <td>{{ item.scheduledTime }} </td>
+                        <td>{{ item.executedTime }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h1>COMPLETED JOBS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Id</th>
+                    <th>Job Name</th>
+                    <th>Job Description</th>
+                    <th>Total Execution Count</th>
+                    <th>Job Completed Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in jobs[2] %}
+                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.jobId, job_type='completed') }}'">
+                        <td>{{ item.jobId }} </td>
+                        <td>{{ item.jobName }} </td>
+                        <td>{{ item.jobDescription }} </td>
+                        <td>{{ item.runTime }} </td>
+                        <td>{{ item.jobCompletedTime }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

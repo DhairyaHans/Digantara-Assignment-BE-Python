@@ -22,11 +22,11 @@ class CompletedJob:
         self.repeatAfter = repeatAfter 
         self.runTime = runTime
         self.isCompleted = isCompleted
-        self.JobCompletedTime = jobCompletedTime
+        self.jobCompletedTime = jobCompletedTime
 
     def __repr__(self) -> str:
-        return f"Job {self.jobName} ({self.jobId}) is scheduled for {self.scheduledTime} is completed on {self.JobCompletedTime}" 
+        return f"Job {self.jobName} ({self.jobId}) is scheduled for {self.scheduledTime} is completed on {self.jobCompletedTime}" 
 
     def __str__(self) -> str:
-        return f"Job {self.jobName} is scheduled for {self.scheduledTime} is completed on {self.JobCompletedTime}, which repeated after every {self.repeatAfter} days"
+        return f"Job {self.jobName} is scheduled for {self.scheduledTime} is completed on {self.jobCompletedTime}, which repeated after every {self.repeatAfter} days"
     

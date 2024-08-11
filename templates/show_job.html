@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widh2=device-widh2, initial-scale=1.0">
+    <title>Show Specific Job</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'styles/style.css') }}">
+</head>
+<body>
+    <div>
+        <h1>Specific Job</h1>
+        <div id="jobData">
+            {% if job_type == "current" %}
+                <h2>Job Id : {{ job.jobId }}</h2>
+                <h2>Job Name : {{ job.jobName }}</h2>
+                <h2>Job Description : {{ job.jobDescription }}</h2>
+                <h2>Next Scheduled Time : {{ job.scheduledTime }}</h2>
+                <h2>Repeat After(days) : {{ job.repeatAfter }}</h2>
+                {% if job.lastRun %}
+                    <h2>Latest Run : {{ job.lastRun }}</h2>
+                {% endif %}
+                <h2>Number of Times Job Ran : {{ job.runTime }}</h2>
+                <h2>Will Repeat : 
+                    {% if job.repeat %} 
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </h2>
+
+            {% elif job_type == "executed" %}
+                <h2>Execution Id : {{ job.executionId }}</h2>
+                <h2>Job Id : {{ job.jobId }}</h2>
+                <h2>Job Name : {{ job.jobName }}</h2>
+                <h2>Job Description : {{ job.jobDescription }}</h2>
+                <h2>Scheduled Time : {{ job.scheduledTime }}</h2>
+                <h2>Executed Time : {{ job.executedTime }}</h2>
+                
+            {% elif job_type == "completed" %}
+                <h2>Job Id : {{ job.jobId }}</h2>
+                <h2>Job Name : {{ job.jobName }}</h2>
+                <h2>Job Description : {{ job.jobDescription }}</h2>
+                <h2>Number of Times Job Ran : {{ job.runTime }}</h2>
+                <h2>Job Completed Time : {{ job.jobCompletedTime }}</h2>
+            {% endif %}
+            
+        </div>
+
+    </div>
+
+</body>
+</html>

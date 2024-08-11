@@ -8,7 +8,7 @@ class ExecutedJob:
                  scheduledTime: str,
                  executedTime: str):
         
-        self.executionId = uuid.uuid4()
+        self.executionId = str(uuid.uuid4())
         self.jobId = jobId
         self.jobName = jobName
         self.jobDescription = jobDescription

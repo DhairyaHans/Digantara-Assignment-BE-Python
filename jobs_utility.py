@@ -29,14 +29,40 @@ class JobsUtility:
                 currently_active_jobs.append(job.__dict__)
 
         print(currently_active_jobs)
+        return currently_active_jobs
     
-    def show_one_job(self, jobId):
-        for job in self.jobsList:
-            if job.jobId == jobId:
-                print(job.__dict__)
-                break
+    def show_one_job(self, jobId, job_type):
+        print(jobId)
+        if job_type == constants.CURRENT:
+            for job in self.jobsList.jobsQueue:
+                print(job, job.jobId, type(job.jobId))
+                if job.jobId == jobId:
+                    print(job.__dict__)
+                    return job.__dict__
+            else:
+                print("No Job Found with the provided Job Id")
+                return "No Job Found"
+        elif job_type == constants.EXECUTED:
+            for job in self.jobsList.executedJobs:
+                print(job, job.executionId, type(job.executionId))
+                if job.executionId == jobId:
+                    print(job.__dict__)
+                    return job.__dict__
+            else:
+                print("No Job Found with the provided Job Id")
+                return "No Job Found"
+        elif job_type == constants.COMPLETED:
+            for job in self.jobsList.completedJobs:
+                print(job, job.jobId, type(job.jobId))
+                if job.jobId == jobId:
+                    print(job.__dict__)
+                    return job.__dict__
+            else:
+                print("No Job Found with the provided Job Id")
+                return "No Job Found"
         else:
             print("No Job Found with the provided Job Id")
+            return "No Job Found"
 
     def execute_Jobs(self, markComplete=False):
         print("EXECUTING THE JOBS")
@@ -56,6 +82,7 @@ class JobsUtility:
                 job.runTime += 1
                 _add_jobs.append(job)
             else:
+                job.runTime += 1
                 job.isCompleted = True
                 job.repeat = False
                 self._add_job_in_completed_list(job=job, curTime=curTime)
@@ -94,14 +121,23 @@ class JobsUtility:
         self.jobsList.executedJobs.append(executedJob)
 
     def show_all_data(self):
+        current_jobs = []
         print("Current Jobs ->")
         for data in self.jobsList.jobsQueue:
             print(data)
+            current_jobs.append(data.__dict__)
 
+        executed_jobs = []
         print("Executed Jobs ->")
         for data in self.jobsList.executedJobs:
             print(data)
+            executed_jobs.append(data.__dict__)
         
+        completed_jobs = []
         print("Completed Jobs ->")
         for data in self.jobsList.completedJobs:
             print(data)
+            completed_jobs.append(data.__dict__)
+
+        return [current_jobs, executed_jobs, completed_jobs]
+            

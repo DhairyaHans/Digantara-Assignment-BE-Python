@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Scheduler APP...</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'styles/style.css') }}">
+</head>
+<body>
+    <div class="btn-group">
+        <form id="all_jobs" action="{{ (url_for('all_jobs')) }}" method="get">
+            <button type="submit">Show all Jobs</button>
+        </form>
+        <form id="add_new_job" action="{{ url_for('add_job') }}" method="get">
+            <button type="submit">Add New Job</button>
+        </form>
+        <form id="execute_task" action="{{ url_for('execute_task') }}" method="get">
+            <button type="submit">Execute a Task</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -11,7 +11,7 @@ class Job:
                  runTime: int=0,
                  isCompleted: bool=False):
         
-        self.jobId = uuid.uuid4()
+        self.jobId = str(uuid.uuid4())
         self.jobName = jobName 
         self.jobDescription = jobDescription
         self.repeat = repeat
@@ -25,7 +25,7 @@ class Job:
         return f"Job {self.jobName} ({self.jobId}) is Next scheduled for {self.scheduledTime}" 
 
     def __str__(self) -> str:
-        return f"Job {self.jobName} is Next scheduled for {self.scheduledTime}, repeated after every {self.repeatAfter} days"
+        return f"Job {self.jobName} ({self.jobId}) is Next scheduled for {self.scheduledTime}, repeated after every {self.repeatAfter} days"
     
     def __lt__(self, other):
         return self.scheduledTime < other.scheduledTime

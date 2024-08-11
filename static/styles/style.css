@@ -1,0 +1,109 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    color: #fff;
+}
+
+.btn-group button {
+    background-color: #04AA6D; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 100%; /* Set a width if needed */
+    margin: 1.5px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-group button {
+    margin: 2px 0; /* Spacing between buttons */
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #3e8e41;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background-color: #04AA6D; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+}
+th, td {
+    padding: 12px;
+    background-color: #04AA6D; /* Green background */
+    color: white; /* White text */
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #04AA6D
+}
+
+tr{
+    cursor: pointer; /* Pointer/hand icon */
+}
+
+tbody:hover {
+    background-color: #f2f2f2; /* Change this color to whatever you prefer */
+}
+
+
+.all_jobs .add_job{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#jobData{
+    background-color: #04AA6D;
+    color: #f2f2f2;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #f2f2f2;
+    padding: 10px 25px
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #eee;
+}
+input[type="text"], input[type="number"], input[type="date"], input[type="time"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
