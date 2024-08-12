@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 {% for item in jobs[0] %}
-                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.jobId, job_type='current') }}'">
+                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.jobId, jobType='current') }}'">
                         <td>{{ item.jobId }} </td>
                         <td>{{ item.jobName }} </td>
                         <td>{{ item.jobDescription }} </td>
@@ -52,7 +52,7 @@
             </thead>
             <tbody>
                 {% for item in jobs[1] %}
-                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.executionId, job_type='executed') }}'">
+                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.executionId, jobType='executed') }}'">
                         <td>{{ item.executionId }} </td>
                         <td>{{ item.jobId }} </td>
                         <td>{{ item.jobName }} </td>
@@ -77,7 +77,7 @@
             </thead>
             <tbody>
                 {% for item in jobs[2] %}
-                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.jobId, job_type='completed') }}'">
+                    <tr onclick="window.location.href='{{ url_for('specific_job', jobId=item.jobId, jobType='completed') }}'">
                         <td>{{ item.jobId }} </td>
                         <td>{{ item.jobName }} </td>
                         <td>{{ item.jobDescription }} </td>

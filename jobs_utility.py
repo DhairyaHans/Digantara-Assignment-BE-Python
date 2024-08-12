@@ -31,9 +31,9 @@ class JobsUtility:
         print(currently_active_jobs)
         return currently_active_jobs
     
-    def show_one_job(self, jobId, job_type):
+    def show_one_job(self, jobId, jobType):
         print(jobId)
-        if job_type == constants.CURRENT:
+        if jobType == constants.CURRENT:
             for job in self.jobsList.jobsQueue:
                 print(job, job.jobId, type(job.jobId))
                 if job.jobId == jobId:
@@ -42,7 +42,7 @@ class JobsUtility:
             else:
                 print("No Job Found with the provided Job Id")
                 return "No Job Found"
-        elif job_type == constants.EXECUTED:
+        elif jobType == constants.EXECUTED:
             for job in self.jobsList.executedJobs:
                 print(job, job.executionId, type(job.executionId))
                 if job.executionId == jobId:
@@ -51,7 +51,7 @@ class JobsUtility:
             else:
                 print("No Job Found with the provided Job Id")
                 return "No Job Found"
-        elif job_type == constants.COMPLETED:
+        elif jobType == constants.COMPLETED:
             for job in self.jobsList.completedJobs:
                 print(job, job.jobId, type(job.jobId))
                 if job.jobId == jobId:

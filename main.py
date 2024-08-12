@@ -10,16 +10,16 @@ app = Flask(__name__)
 def hello_world():
     return render_template("index.html")
 
-@app.route("/jobs", methods=['GET', 'POST'])
+@app.route("/jobs", methods=['GET'])
 def all_jobs():
     jobs = jobsUtility.show_all_data()
     return render_template("all_jobs.html", jobs=jobs)
 
-@app.route("/jobs/<jobId>/<job_type>", methods=['GET'])
-def specific_job(jobId, job_type):
-    jobDetails = jobsUtility.show_one_job(jobId=jobId, job_type=job_type)
+@app.route("/jobs/<jobId>/<jobType>", methods=['GET'])
+def specific_job(jobId, jobType):
+    jobDetails = jobsUtility.show_one_job(jobId=jobId, jobType=jobType)
     print(jobDetails)
-    return render_template("show_job.html", job=jobDetails, job_type=job_type)
+    return render_template("show_job.html", job=jobDetails, jobType=jobType)
 
 @app.route("/add_job", methods=['GET', 'POST'])
 def add_job():
@@ -86,9 +86,9 @@ if __name__ == "__main__":
         {
             "jobName": "Today's Alarm",
             "jobDescription": "Alarm scheduled for Today at 6PM",
-            "repeat": True,
+            "repeat": False,
             "scheduledTime": "2024-08-11 18:00:00",  
-            "repeatAfter": 2,
+            "repeatAfter": 0,
             "runTime": 0,
             "isCompleted": False
         }

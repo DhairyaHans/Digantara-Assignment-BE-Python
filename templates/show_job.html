@@ -10,7 +10,7 @@
     <div>
         <h1>Specific Job</h1>
         <div id="jobData">
-            {% if job_type == "current" %}
+            {% if jobType == "current" %}
                 <h2>Job Id : {{ job.jobId }}</h2>
                 <h2>Job Name : {{ job.jobName }}</h2>
                 <h2>Job Description : {{ job.jobDescription }}</h2>
@@ -28,7 +28,7 @@
                     {% endif %}
                 </h2>
 
-            {% elif job_type == "executed" %}
+            {% elif jobType == "executed" %}
                 <h2>Execution Id : {{ job.executionId }}</h2>
                 <h2>Job Id : {{ job.jobId }}</h2>
                 <h2>Job Name : {{ job.jobName }}</h2>
@@ -36,7 +36,7 @@
                 <h2>Scheduled Time : {{ job.scheduledTime }}</h2>
                 <h2>Executed Time : {{ job.executedTime }}</h2>
                 
-            {% elif job_type == "completed" %}
+            {% elif jobType == "completed" %}
                 <h2>Job Id : {{ job.jobId }}</h2>
                 <h2>Job Name : {{ job.jobName }}</h2>
                 <h2>Job Description : {{ job.jobDescription }}</h2>
