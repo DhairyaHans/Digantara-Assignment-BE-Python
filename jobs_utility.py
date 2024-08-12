@@ -5,7 +5,9 @@ from Model.executedJob import ExecutedJob
 from datetime import datetime, timedelta
 import constants
 import heapq
+import pytz
 
+ist_tz = pytz.timezone("Asia/Kolkata")
 
 class JobsUtility:
     def __init__(self, jobsList: JobsList):
@@ -66,12 +68,13 @@ class JobsUtility:
 
     def execute_Jobs(self, markComplete=False):
         print("EXECUTING THE JOBS")
-        curTime = datetime.now().__format__(constants.DATE_FORMAT)
+        curTime = datetime.now(tz=ist_tz).__format__(constants.DATE_FORMAT)
         print(curTime)
         tempQueue = self.jobsList.jobsQueue
         _add_jobs = []
         while tempQueue and tempQueue[0].scheduledTime <= curTime:
             job = heapq.heappop(tempQueue)
+            print(job)
             job.lastRun = curTime
             self._add_job_in_executed_list(job=job, curTime=curTime)
             if job.repeat and not markComplete:
