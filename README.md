@@ -140,6 +140,8 @@ Assumptions were made while developing the Application ->
 
     3. User can only Repeat a job based on the number of days.
 
+    4. I have added some dummy data in the DB, So that user can see, how the data is visible on the App.
+
 ## Discussion On Execution of Jobs : 
 
 The Application stores the jobs in a Priority Queue (or Heap), which provides the jobs to be finished in the near time first.
